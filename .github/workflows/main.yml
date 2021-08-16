@@ -1,0 +1,26 @@
+name: Build and test
+on:
+  push:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: dump context
+      run: |
+        cat $GITHUB_EVENT_PATH
+    - name: ready
+      run: echo ready
+
+  test:
+    name: Test
+    needs:
+    - build
+    runs-on: ubuntu-latest
+    steps:
+    - name: dump context
+      run: |
+        cat $GITHUB_EVENT_PATH
+    - name: ready
+      run: echo ready
